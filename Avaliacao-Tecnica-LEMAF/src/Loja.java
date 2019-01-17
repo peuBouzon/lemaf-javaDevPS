@@ -43,10 +43,16 @@ public class Loja {
 		return frota.carroDisponivel(retirada);
 	}
 	/*
-	 * Adiciona um veiculo à Loja
+	 * Adiciona um veiculo à Loja.
 	 */
 	public void adicionarVeiculo(Carro c) {
 		frota.adicionarVeiculo(c);
+	}
+	/*
+	 * Remove um veiculo da Loja.
+	 */
+	public void removerVeiculo(String id) {
+		frota.removerVeiculo(id);
 	}
 	/*
 	 * Aluga um veiculo da loja alterando sua disponibilidade

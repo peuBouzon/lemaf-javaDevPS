@@ -16,6 +16,14 @@ public class Frota {
 	public void adicionarVeiculo(Carro c) {
 		frota.add(c);
 	}
+	public void removerVeiculo(String id) {
+		for (Carro c: frota) {
+			if (c.getId() == id) {
+				frota.remove(c);
+				break;
+			}
+		}
+	}
 	/*
 	 * Caso haja, retorna um carro disponivel na data passada por parâmetro.
 	 * @param String retirada - data de retirada do veículo (Ex: "16Mar2009")
