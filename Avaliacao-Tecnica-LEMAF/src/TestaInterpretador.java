@@ -1,0 +1,47 @@
+import junit.framework.TestCase;
+import java.util.ArrayList;
+public class TestaInterpretador extends TestCase{
+
+	public void testaInterpretar() {
+		Locadora locadora = new Locadora();
+		
+		Loja southCar = new Loja("SouthCar", 210, 150, 200, 90);
+		Loja westCar = new Loja("WestCar", 530, 150, 200, 90);
+		Loja northCar = new Loja("NorthCar", 630, 580, 600, 590);
+		
+		Compacto compacto1 = new Compacto("Golf");
+		Compacto compacto2 = new Compacto("Gol");
+		
+		Esportivo sport1 = new Esportivo("Ferrari");
+		Esportivo sport2 = new Esportivo("Porsche");
+		
+		SUV suv1 = new SUV("Navigator");
+		SUV suv2 = new SUV("Santa Fé");
+		
+		southCar.adicionarVeiculo(compacto1);
+		southCar.adicionarVeiculo(compacto2);
+
+		
+		westCar.adicionarVeiculo(sport1);
+		westCar.adicionarVeiculo(sport2);
+		
+		northCar.adicionarVeiculo(suv1);
+		northCar.adicionarVeiculo(suv2);
+		
+		locadora.adicionarLoja(southCar);
+		locadora.adicionarLoja(westCar);
+		locadora.adicionarLoja(northCar);
+		
+		Interpretador interpretador = new Interpretador("entradaTesteInterpretador.txt", locadora);
+		ArrayList<String> resposta = interpretador.interpretar();
+		ArrayList<String> desejado = new ArrayList<String>();
+		desejado.add("Ferrari: WestCar");
+		desejado.add("Golf: SouthCar");
+		desejado.add("Navigator: NorthCar");
+		desejado.add("Golf: SouthCar");
+		
+		assertEquals(desejado, resposta);
+		
+	}
+	
+}
